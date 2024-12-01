@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book mark</title>
+    <!-- icon site -->
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="shortcut icon" href="img/apple-touch-icon.png" type="image/x-icon">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Old+Italic&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Old+Italic&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- style="font-size: 3rem;" -->
+    <header class=" vh-100  ">
+        <div class="container py-5">
+            <div class="header-text text-center mt-4 ">
+                <h1 class="book position-relative z-1 mb-5  pb-2">Bookmarker</h1>
+            </div>
+
+            <div class="row gy-4">
+                <div class="col-12">
+                    <div class=" header-line d-flex justify-content-center mt-4 align-items-center">
+                        <i class="fa-solid fa-bookmark fs-4"></i>
+                        <h2 class="mx-2" style="font-size: 1.4rem;">Bookmark your favorite sites </h2>
+                        <i class="fa-solid fa-bookmark fs-4"></i>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="header-input w-100 m-auto">
+                        <span><i class="fa-solid fa-book"></i></span>
+                        <label for="sitename" class="mx-2 mb-2 fw-semibold">Site Name</label>
+                        <input type="text" class="form-control py-2 " id="sitename" placeholder="Enter email">
+
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="header-input w-100 m-auto">
+                        <span><i class="fa-solid fa-link"></i></span>
+                        <label for="firstname" class="mx-1 mb-2 fw-semibold">Site URL</label>
+                        <input type="url" class="form-control py-2" id="siteurl" placeholder="Website URL">
+                    </div>
+
+                </div>
+                <div class="mt-4 header-btn text-center mb-4">
+                    <button class="btn bttn fs-6 fw-light px-5 text-white" onclick="addSite()"
+                        type="submit">submit</button>
+                </div>
+            </div>
+            <table class="table mt-4 text-center">
+                <thead>
+                    <th>index</th>
+                    <th>Website Name</th>
+                    <th>Visit</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">  <div class="traffic-light pt-3 d-flex ">
+            <div class="red"></div>
+            <div class="yellow mx-2"></div>
+            <div class="green"></div>
+        </div></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h6 class="fw-semibold text-black  pb-2"style="font-size: 1.1rem;">Site Name or Url is not valid, Please follow the rules below :</h6>   
+            <div class="alert-text pb-2 ">
+                <i class="fa-regular fa-circle-right me-2" style="font-size: 1.2rem;"></i><span  class=" text-black my-5" style="font-size: 1.1rem;">Site name must contain at least 3 characters</span> 
+                <br>
+                    <i class="fa-regular fa-circle-right me-2" style="font-size: 1.2rem;"></i><span class="text-black my-5 " style="font-size: 1.1rem;">Site URL must be a valid one</span>   
+                    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </header>
+            <!-- < <div class=" d-none " id="overlay">
+                <div class="alert alert-warning alert-dismissible  position-absolute z-3 bg-white" id="alertsite" role="alert">
+
+                    <div class="container ">
+                        <div class="traffic-light pt-3 d-flex ">
+                            <div class="red"></div>
+                            <div class="yellow mx-2"></div>
+                            <div class="green"></div>
+                        </div>
+                        <h6 class="fw-semibold text-black pt-5 pb-2"style="font-size: 1.1rem;">Site Name or Url is not valid, Please follow the rules below :</h6>   
+                        <div class="alert-text pb-2 ">
+                            <i class="fa-regular fa-circle-right me-2" style="font-size: 1.2rem;"></i><span  class=" text-black my-5" style="font-size: 1.1rem;">Site name must contain at least 3 characters</span> 
+                            <br>
+                                <i class="fa-regular fa-circle-right me-2" style="font-size: 1.2rem;"></i><span class="text-black my-5 " style="font-size: 1.1rem;">Site URL must be a valid one</span>   
+                                </div>
+                                
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>                    
+                    </div>
+                </div> -->
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
